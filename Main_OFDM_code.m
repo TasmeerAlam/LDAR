@@ -1,7 +1,7 @@
 % Morgan State University
 % WiNetS lab, Electrical and Computer Engineering
 % Version 2.0
-% Last modified 0n July 17,2013
+% Last modified on March 22, 2018
 % This code simulates a communication system with
 % 64 tone OFDM modulation.
 % 4-16-64-256 QAM midularion.( b_p_sym= 2 for 4QAM, b_p_sym= 4 for 16-QAM, b_p_sym= 6 for 64QAM ,b_p_sym= 8 for 256QAM)
