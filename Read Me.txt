@@ -1,0 +1,83 @@
+OFDM LDAR code V2.0
+Developed in WiNetS lab, Morgan State University, Baltimore, MD.
+Last modified on : July 18,2013
+Last modified by : Farzad Moazzami
+
+This is the latest version of OFDM LDAR code. Some of the variables names has been changed.
+This version includes equalizer and puncturing to achieve higher coding rates.It supports upto 256 QAM modulation and 3/4 code rate.
+This folder contains the main driver and 12 functions. To run this OFDM simulation software run the main file:
+
+
+ "Main_OFDM_code.m"
+
+Functions that are called by the main code are listed below:
+
+
+Encoder:
+	This function changes the transmitted bits from binary to decimal followed byViterbi encoding.
+	Coding_scheme identifies the mode for coding.
+   		'0' for no coding
+   		'1' for convolutional coding
+   		'2' for BCH coding
+QAM_mod:
+	This function changes the data from serial to parallel which is followed
+	by QAM modulation.
+
+Add_Cyclic_Prefix:
+	This function adds cyclic prefix to the transmitted signal to mitigate
+	for ISI. 1/4 of the data field is folded back to the end of each packet
+
+Decoder:
+	This function changes the received bits from decimal to binary which is followed by Viterbi decoding.
+	Coding_scheme identifies the mode for decoding. 
+     		'0' for no decoding
+     		'1' for Viterbi decoding
+     		'2' for BCH decoing
+
+OFDM_mod:
+	This function applies ifft at the transmitter to change the signal in to OFDM tones.
+
+
+OFDM_demod:
+	This function applies fft at the receicer end to remove the OFDM effects.
+
+
+
+QAM_demod:
+	This function demodulates the received signal and changes the demodulated
+	signal from parallel to serial.
+
+
+Remove_Cyclic_Prefix:
+	This function changes the signal from serial to parallel and
+	removes the cyclic prefix.
+
+
+Channel:
+	This function transmits the signal through the channel h. Channel impulse
+	response is selected by the Channel_no switch in the main code. Measured AWGN is added with the specified SNR.
+
+Dynamic Channel:
+	This function transmits the signal through the channel h. 
+
+Select_Puncture_Vector:
+    	This function assigns the puncturing vector to acheive different coding rates by puncturing the rate 1/2 codeword.
+    	convolutional coding  based on the given coding rate in the main function.
+
+Equalizer:
+    This function helps to reduce ISI(Inter Symbol Interference)and inverse the channel. 8 pilot tones assumed.
+
+Theory_BER:
+	This function provides the theoritical curve of BER vs. SNR.
+
+
+
+
+
+
+
+
+
+
+
+
